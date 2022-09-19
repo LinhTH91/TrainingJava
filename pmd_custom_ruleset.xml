@@ -1,0 +1,282 @@
+<?xml version="1.0"?>
+<ruleset name="Custom ruleset" xmlns="http://pmd.sourceforge.net/ruleset/2.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://pmd.sourceforge.net/ruleset/2.0.0 http://pmd.sourceforge.net/ruleset_2_0_0.xsd">
+
+  <description>
+    This ruleset checks my code for bad stuff
+  </description>
+
+  <!-- We'll use the entire 'strings' ruleset -->
+  <rule ref="rulesets/java/strings.xml"/>
+
+  <!-- Here's some rules we'll specify one at a time -->
+  <rule ref="rulesets/java/unusedcode.xml/UnusedLocalVariable"/>
+  <!--    <rule ref="rulesets/java/unusedcode.xml/UnusedPrivateField" />-->
+  <rule ref="rulesets/java/imports.xml/DuplicateImports"/>
+  <rule ref="rulesets/java/unnecessary.xml/UnnecessaryConversionTemporary"/>
+
+  <!-- We want to customize this rule a bit, change the message and raise
+      the priority -->
+  <rule ref="rulesets/java/empty.xml/EmptyCatchBlock" message="Must handle exceptions">
+    <priority>2</priority>
+  </rule>
+
+  <!-- Now we'll customize a rule's property value -->
+  <!--    <rule ref="rulesets/java/codesize.xml/CyclomaticComplexity">-->
+  <!--        <properties>-->
+  <!--            <property name="methodReportLevel" value="171" />-->
+  <!--        </properties>-->
+  <!--    </rule>-->
+
+  <!--    &lt;!&ndash; We want everything from braces.xml except WhileLoopsMustUseBraces &ndash;&gt;-->
+  <!--    <rule ref="rulesets/java/braces.xml">-->
+  <!--        <exclude name="WhileLoopsMustUseBraces" />-->
+  <!--    </rule>-->
+  <rule ref="category/java/performance.xml/AddEmptyString"/>
+<!--  <rule ref="category/java/performance.xml/AppendCharacterWithChar"/>-->
+  <rule ref="category/java/performance.xml/AvoidArrayLoops"/>
+  <rule ref="category/java/performance.xml/AvoidFileStream"/>
+  <rule ref="category/java/performance.xml/AvoidInstantiatingObjectsInLoops"/>
+<!--  <rule ref="category/java/performance.xml/ConsecutiveLiteralAppends"/>-->
+<!--  <rule ref="category/java/performance.xml/InefficientEmptyStringCheck"/>-->
+<!--  <rule ref="category/java/performance.xml/InefficientStringBuffering"/>-->
+<!--  <rule ref="category/java/performance.xml/InsufficientStringBufferDeclaration"/>-->
+  <rule ref="category/java/performance.xml/OptimizableToArrayCall"/>
+  <rule ref="category/java/performance.xml/RedundantFieldInitializer"/>
+  <rule ref="category/java/performance.xml/SimplifyStartsWith"/>
+<!--  <rule ref="category/java/performance.xml/StringInstantiation"/>-->
+<!--  <rule ref="category/java/performance.xml/StringToString"/>-->
+  <rule ref="category/java/performance.xml/TooFewBranchesForASwitchStatement">
+    <properties>
+      <property name="minimumNumberCaseForASwitch" value="2"/>
+    </properties>
+  </rule>
+  <rule ref="category/java/performance.xml/UseArraysAsList"/>
+<!--  <rule ref="category/java/performance.xml/UseIndexOfChar"/>-->
+  <rule ref="category/java/performance.xml/UseIOStreamsWithApacheCommonsFileItem"/>
+<!--  <rule ref="category/java/performance.xml/UselessStringValueOf"/>-->
+<!--  <rule ref="category/java/performance.xml/UseStringBufferForStringAppends"/>-->
+<!--  <rule ref="category/java/performance.xml/UseStringBufferLength"/>-->
+  <rule ref="category/java/multithreading.xml/AvoidSynchronizedAtMethodLevel"/>
+  <rule ref="category/java/security.xml/HardCodedCryptoKey"/>
+  <rule ref="category/java/bestpractices.xml/ArrayIsStoredDirectly"/>
+  <rule ref="category/java/bestpractices.xml/AvoidMessageDigestField"/>
+  <rule ref="category/java/bestpractices.xml/AvoidPrintStackTrace"/>
+  <rule ref="category/java/bestpractices.xml/AvoidReassigningParameters"/>
+<!--  <rule ref="category/java/bestpractices.xml/AvoidStringBufferField"/>-->
+  <rule ref="category/java/bestpractices.xml/CheckResultSet"/>
+  <rule ref="category/java/bestpractices.xml/DefaultLabelNotLastInSwitchStmt"/>
+  <rule ref="category/java/bestpractices.xml/ForLoopCanBeForeach"/>
+  <rule ref="category/java/bestpractices.xml/ForLoopVariableCount"/>
+  <!--  <rule ref="category/java/bestpractices.xml/JUnitAssertionsShouldIncludeMessage" />-->
+  <rule ref="category/java/bestpractices.xml/JUnitTestContainsTooManyAsserts">
+    <properties>
+      <property name="maximumAsserts" value="1"/>
+    </properties>
+  </rule>
+  <!--  <rule ref="category/java/bestpractices.xml/LiteralsFirstInComparisons" />-->
+  <rule ref="category/java/bestpractices.xml/LooseCoupling"/>
+  <rule ref="category/java/bestpractices.xml/MethodReturnsInternalArray"/>
+  <rule ref="category/java/bestpractices.xml/MissingOverride"/>
+  <rule ref="category/java/bestpractices.xml/OneDeclarationPerLine"/>
+  <rule ref="category/java/bestpractices.xml/PreserveStackTrace"/>
+  <rule ref="category/java/bestpractices.xml/PrimitiveWrapperInstantiation"/>
+  <rule ref="category/java/bestpractices.xml/ReplaceEnumerationWithIterator"/>
+  <rule ref="category/java/bestpractices.xml/ReplaceHashtableWithMap"/>
+  <rule ref="category/java/bestpractices.xml/SimplifiableTestAssertion"/>
+  <rule ref="category/java/bestpractices.xml/SystemPrintln"/>
+  <rule ref="category/java/bestpractices.xml/UnusedAssignment">
+    <properties>
+      <property name="checkUnusedPrefixIncrement" value="false"/>
+      <property name="reportUnusedVariables" value="false"/>
+    </properties>
+  </rule>
+  <rule ref="category/java/bestpractices.xml/UnusedFormalParameter">
+    <properties>
+      <property name="checkAll" value="false"/>
+    </properties>
+  </rule>
+  <!--  <rule ref="category/java/bestpractices.xml/UnusedPrivateField">-->
+  <!--    <properties>-->
+  <!--      <property name="ignoredAnnotations" value="lombok.Setter|lombok.Getter|lombok.Builder|lombok.Data|lombok.RequiredArgsConstructor|lombok.AllArgsConstructor|lombok.Value|lombok.NoArgsConstructor|java.lang.Deprecated|javafx.fxml.FXML|lombok.experimental.Delegate|lombok.EqualsAndHashCode" />-->
+  <!--      <property name="ignoredFieldNames" value="serialVersionUID|serialPersistentFields" />-->
+  <!--    </properties>-->
+  <!--  </rule>-->
+  <rule ref="category/java/bestpractices.xml/UnusedPrivateMethod"/>
+  <rule ref="category/java/bestpractices.xml/UseStandardCharsets"/>
+  <rule ref="category/java/bestpractices.xml/UseTryWithResources">
+    <properties>
+      <property name="closeMethods" value="close,closeQuietly"/>
+    </properties>
+  </rule>
+  <rule ref="category/java/bestpractices.xml/UseVarargs"/>
+  <rule ref="category/java/bestpractices.xml/WhileLoopWithLiteralBoolean"/>
+  <!--  <rule ref="category/java/codestyle.xml/AtLeastOneConstructor">-->
+  <!--    <properties>-->
+  <!--      <property name="ignoredAnnotations" value="lombok.Data|lombok.Value|lombok.Builder|lombok.NoArgsConstructor|lombok.RequiredArgsConstructor|lombok.AllArgsConstructor" />-->
+  <!--    </properties>-->
+  <!--  </rule>-->
+  <rule ref="category/java/codestyle.xml/AvoidDollarSigns"/>
+  <rule ref="category/java/codestyle.xml/AvoidProtectedMethodInFinalClassNotExtending"/>
+  <rule ref="category/java/codestyle.xml/BooleanGetMethodName">
+    <properties>
+      <property name="checkParameterizedMethods" value="false"/>
+    </properties>
+  </rule>
+  <rule ref="category/java/codestyle.xml/CallSuperInConstructor"/>
+  <!--  <rule ref="category/java/codestyle.xml/ConfusingTernary">-->
+  <!--    <properties>-->
+  <!--      <property name="ignoreElseIf" value="false" />-->
+  <!--    </properties>-->
+  <!--  </rule>-->
+  <rule ref="category/java/codestyle.xml/ControlStatementBraces">
+    <properties>
+      <property name="checkIfElseStmt" value="true"/>
+      <property name="checkSingleIfStmt" value="true"/>
+      <property name="checkWhileStmt" value="true"/>
+      <property name="checkForStmt" value="true"/>
+      <property name="checkDoWhileStmt" value="true"/>
+      <property name="checkCaseStmt" value="false"/>
+      <property name="allowEmptyLoop" value="false"/>
+    </properties>
+  </rule>
+  <!--  <rule ref="category/java/codestyle.xml/FieldDeclarationsShouldBeAtStartOfClass">-->
+  <!--    <properties>-->
+  <!--      <property name="ignoreEnumDeclarations" value="true" />-->
+  <!--      <property name="ignoreAnonymousClassDeclarations" value="true" />-->
+  <!--      <property name="ignoreInterfaceDeclarations" value="false" />-->
+  <!--    </properties>-->
+  <!--  </rule>-->
+  <rule ref="category/java/codestyle.xml/ForLoopShouldBeWhileLoop"/>
+  <!--  <rule ref="category/java/codestyle.xml/LocalVariableCouldBeFinal">-->
+  <!--    <properties>-->
+  <!--      <property name="ignoreForEachDecl" value="false" />-->
+  <!--    </properties>-->
+  <!--  </rule>-->
+  <rule ref="category/java/codestyle.xml/ShortMethodName">
+    <properties>
+      <property name="minimum" value="2"/>
+    </properties>
+  </rule>
+  <rule ref="category/java/codestyle.xml/ShortVariable">
+    <properties>
+      <property name="minimum" value="2"/>
+    </properties>
+  </rule>
+  <rule ref="category/java/codestyle.xml/TooManyStaticImports">
+    <properties>
+      <property name="maximumStaticImports" value="20"/>
+    </properties>
+  </rule>
+  <rule ref="category/java/codestyle.xml/UnnecessaryCast"/>
+  <rule ref="category/java/codestyle.xml/UnnecessaryFullyQualifiedName"/>
+  <rule ref="category/java/codestyle.xml/UnnecessaryImport"/>
+  <rule ref="category/java/codestyle.xml/UnnecessaryLocalBeforeReturn"/>
+  <rule ref="category/java/codestyle.xml/UnnecessarySemicolon"/>
+  <rule ref="category/java/codestyle.xml/UseDiamondOperator"/>
+  <rule ref="category/java/codestyle.xml/UselessParentheses"/>
+  <rule ref="category/java/codestyle.xml/UselessQualifiedThis"/>
+  <rule ref="category/java/codestyle.xml/UseShortArrayInitializer"/>
+  <rule ref="category/java/codestyle.xml/UseUnderscoresInNumericLiterals"/>
+  <rule ref="category/java/design.xml/CyclomaticComplexity">
+    <properties>
+      <property name="classReportLevel" value="180"/>
+      <property name="methodReportLevel" value="20"/>
+      <property name="cycloOptions" value=""/>
+    </properties>
+  </rule>
+  <rule ref="category/java/design.xml/ExcessiveClassLength">
+    <properties>
+      <property name="minimum" value="1250.0"/>
+    </properties>
+  </rule>
+  <rule ref="category/java/design.xml/ExcessiveImports">
+    <properties>
+      <property name="minimum" value="50.0"/>
+    </properties>
+  </rule>
+  <rule ref="category/java/design.xml/ExcessiveMethodLength">
+    <properties>
+      <property name="minimum" value="150.0"/>
+    </properties>
+  </rule>
+  <rule ref="category/java/design.xml/ExcessiveParameterList">
+    <properties>
+      <property name="minimum" value="10.0"/>
+    </properties>
+  </rule>
+  <rule ref="category/java/design.xml/AvoidThrowingNullPointerException"/>
+  <rule ref="category/java/design.xml/AvoidUncheckedExceptionsInSignatures"/>
+<!--  <rule ref="category/java/errorprone.xml/AvoidDuplicateLiterals">-->
+<!--    <properties>-->
+<!--      <property name="separator" value=","/>-->
+<!--      <property name="maxDuplicateLiterals" value="4"/>-->
+<!--      <property name="minimumLength" value="3"/>-->
+<!--      <property name="skipAnnotations" value="false"/>-->
+<!--      <property name="exceptionList" value=""/>-->
+<!--    </properties>-->
+<!--  </rule>-->
+  <rule ref="category/java/errorprone.xml/AvoidFieldNameMatchingTypeName"/>
+  <rule ref="category/java/errorprone.xml/AvoidFieldNameMatchingMethodName"/>
+  <rule ref="category/java/errorprone.xml/AvoidLiteralsInIfCondition">
+    <properties>
+      <property name="ignoreMagicNumbers" value="-1,0,1"/>
+      <property name="ignoreExpressions" value="true"/>
+    </properties>
+  </rule>
+  <rule ref="category/java/errorprone.xml/AvoidLosingExceptionInformation"/>
+  <rule ref="category/java/errorprone.xml/AvoidMultipleUnaryOperators"/>
+  <rule ref="category/java/errorprone.xml/BadComparison"/>
+  <rule ref="category/java/errorprone.xml/BrokenNullCheck"/>
+  <rule ref="category/java/errorprone.xml/CompareObjectsWithEquals"/>
+  <rule ref="category/java/errorprone.xml/DoNotThrowExceptionInFinally" />
+  <rule ref="category/java/errorprone.xml/DontUseFloatTypeForLoopIndices" />
+  <rule ref="category/java/errorprone.xml/EqualsNull" />
+  <rule ref="category/java/errorprone.xml/IdempotentOperations" />
+  <rule ref="category/java/errorprone.xml/ImplicitSwitchFallThrough" />
+  <rule ref="category/java/errorprone.xml/MethodWithSameNameAsEnclosingClass" />
+  <rule ref="category/java/errorprone.xml/MisplacedNullCheck" />
+  <rule ref="category/java/errorprone.xml/MoreThanOneLogger" />
+  <rule ref="category/java/errorprone.xml/NonCaseLabelInSwitchStatement" />
+  <rule ref="category/java/errorprone.xml/NullAssignment" />
+  <rule ref="category/java/errorprone.xml/ReturnEmptyCollectionRatherThanNull" />
+  <rule ref="category/java/errorprone.xml/ReturnFromFinallyBlock" />
+  <rule ref="category/java/errorprone.xml/SingleMethodSingleton" />
+  <rule ref="category/java/errorprone.xml/SingletonClassReturningNewInstance" />
+  <rule ref="category/java/errorprone.xml/TestClassWithoutTestCases" />
+  <rule ref="category/java/errorprone.xml/UnconditionalIfStatement" />
+  <rule ref="category/java/errorprone.xml/UnnecessaryBooleanAssertion" />
+<!--  <rule ref="category/java/errorprone.xml/UnnecessaryCaseChange" />-->
+  <rule ref="category/java/errorprone.xml/UnusedNullCheckInEquals" />
+<!--  <rule ref="category/java/errorprone.xml/UseEqualsToCompareStrings" />-->
+  <rule ref="category/java/errorprone.xml/InvalidLogMessageFormat" />
+  <rule ref="category/java/codestyle.xml/LocalVariableNamingConventions">
+    <properties>
+      <property name="localVarPattern" value="[a-z][a-zA-Z0-9]*" />
+      <property name="finalVarPattern" value="[a-z][a-zA-Z0-9]*" />
+      <property name="catchParameterPattern" value="[a-z][a-zA-Z0-9]*" />
+    </properties>
+  </rule>
+<!--  <rule ref="category/java/codestyle.xml/MethodArgumentCouldBeFinal" />-->
+  <rule ref="category/java/codestyle.xml/MethodNamingConventions">
+    <properties>
+      <property name="methodPattern" value="[a-z][a-zA-Z0-9]*" />
+      <property name="staticPattern" value="[a-z][a-zA-Z0-9]*" />
+      <property name="nativePattern" value="[a-z][a-zA-Z0-9]*" />
+      <property name="junit3TestPattern" value="test[A-Z0-9][a-zA-Z0-9]*" />
+      <property name="junit4TestPattern" value="[a-z][a-zA-Z0-9]*" />
+      <property name="junit5TestPattern" value="[a-z][a-zA-Z0-9]*" />
+    </properties>
+  </rule>
+  <rule ref="category/java/codestyle.xml/NoPackage" />
+  <rule ref="category/java/codestyle.xml/PackageCase" />
+  <rule ref="category/java/codestyle.xml/PrematureDeclaration" />
+  <rule ref="category/java/codestyle.xml/UnnecessaryAnnotationValueElement" />
+<!--  <rule ref="category/java/codestyle.xml/UnnecessaryCast" />-->
+  <rule ref="category/java/codestyle.xml/UnnecessaryConstructor">
+    <properties>
+      <property name="ignoredAnnotations" value="javax.inject.Inject" />
+    </properties>
+  </rule>
+</ruleset>
